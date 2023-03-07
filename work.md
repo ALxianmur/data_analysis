@@ -7,14 +7,14 @@ import pandas  as pd
 import numpy   as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-df1 = pd.read_csv("carton_1.csv")
-df2 = pd.read_csv("carton_2.csv")
-df3 = pd.read_csv("clothing_1.csv")
-df4 = pd.read_csv("clothing_2.csv")
-df5 = pd.read_csv("electrical_1.csv")
-df6 = pd.read_csv("electrical_2.csv")
-df7 = pd.read_csv("electrical_3.csv")
-df8 = pd.read_csv("electrical_4.csv")
+df1 = pd.read_csv("./csv/carton_1.csv")
+df2 = pd.read_csv("./csv/carton_2.csv")
+df3 = pd.read_csv("./csv/clothing_1.csv")
+df4 = pd.read_csv("./csv/clothing_2.csv")
+df5 = pd.read_csv("./csv/electrical_1.csv")
+df6 = pd.read_csv("./csv/electrical_2.csv")
+df7 = pd.read_csv("./csv/electrical_3.csv")
+df8 = pd.read_csv("./csv/electrical_4.csv")
 df_serise=[df1,df2,df3,df4,df5,df6,df7,df8]#批量化处理
 ```
 
@@ -31,7 +31,7 @@ df8.head(5)
 
 表格预览
 
-![Alt text](table_scan1.png)
+![Alt text](./png/table_scan1.png)
 
 ### 无关数据删除
 
@@ -43,7 +43,7 @@ for x in df_serise:
 df8.head(5)
 ```
 
-![Alt text](table_scan2.png)
+![Alt text](./png/table_scan2.png)
 
 对空数据统计
 
@@ -75,7 +75,7 @@ sns.heatmap(carton.corr(), vmin=-1, vmax=1, cmap="RdBu_r",center=0, linewidths=0
 plt.show()
 ```
 
-![Alt text](R_carton.png)  
+![Alt text](./png/R_carton.png)  
 通过相关性分析可知(以>0.75为可能相关)  
 Humidity-Temperature  
 MQ139-Humidity  
@@ -94,19 +94,19 @@ plt.ylabel("Temperature")
 plt.show()
 ```
 
-![Alt text](Humidity-Temperature(carton).png)  
+![Alt text](./png/Humidity-Temperature(carton).png)  
 可以看出同样是carton类，对于温度和湿度的条件差异较大  
 但两者在测量环境下都呈现出温度升高而湿度降低
 
 ### MQ139-Humidity(carton)
 
-![Alt text](MQ139-Humidity(carton).png)  
+![Alt text](./png/MQ139-Humidity(carton).png)  
 这里可以明显看出湿度较低时，氟利昂含量较低但随湿度增加而迅速增加。  
 当湿度较高时湿度反而不是氟利昂含量增长的主要因素
 
 ### MQ139-Temperature(carton)
 
-![Alt text](MQ139-Temperature(carton).png)  
+![Alt text](./png/MQ139-Temperature(carton).png)  
 温度较低时，氟利昂含量较低但随温度增加均匀减少。  
 当温度较高时随温度增加氟利昂含量迅速增长
 
@@ -119,7 +119,7 @@ plt.xlabel("TVOC")
 plt.ylabel("eco2")
 ```
 
-![Alt text](eco2-TVOC(carton).png)  
+![Alt text](./png/eco2-TVOC(carton).png)  
 从表中可以看出TVOC与co2含量大致成正相关
 
 ### status-eco2 & status-TVOC
@@ -141,7 +141,7 @@ plt.ylabel("eco2")
 
 ### 相关性分析(clothing)
 
-![Alt text](R_clothing.png)  
+![Alt text](./png/R_clothing.png)  
 通过相关性分析可知(以>0.75为可能相关)  
 Humidity-Temperature  
 MQ139-TVOC
@@ -151,20 +151,20 @@ eco2-TVOC
 
 ### Humidity-Temperature(clothing)
 
-![Alt text](Humidity-Temperature(clothing).png)  
+![Alt text](./png/Humidity-Temperature(clothing).png)  
 
 可以看出同样是clothing类，对于温度和湿度的条件差异较大  
 温度较低时在测量环境下呈现出温度升高而湿度降低，当湿度较大时，温度对湿都影响小
 
 ### MQ139-TVOC(clothing)
 
-![Alt text](MQ139-TVOC(clothing).png)  
+![Alt text](./png/MQ139-TVOC(clothing).png)  
 温度较低时，产品1产生空气污染含量较低但随温度增加均匀减少。  
 当温度较高时随温度增加氟利昂含量迅速增长
 
 ### MQ139-eCO2(clothing)
 
-![Alt text](MQ139-eCO2(clothing).png)  
+![Alt text](./png/MQ139-eCO2(clothing).png)  
 可以看出来，氟利昂和co2含量大致成阶梯式增长拐点大致位于（220，2000）  
 （350，25000）和 （420，29000）处  
 （0，220）阶段：eCO2随氟利昂含量增加迅速增加  
@@ -174,7 +174,7 @@ eco2-TVOC
 
 ### eco2-TVOC(clothing)
 
-![Alt text](eco2-TVOC(clothing).png)  
+![Alt text](./png/eco2-TVOC(clothing).png)  
 两者大致成正比例增加，但在（35000-——  ）阶段随空气污染量的增加凑CO2含量没有明显增加
 
 ## 总结clothing
@@ -188,7 +188,7 @@ eco2-TVOC
 
 ### 相关性分析(electrical)
 
-![Alt text](R_electrical.png)  
+![Alt text](./png/R_electrical.png)  
 通过相关性分析可知(以>0.75为可能相关)  
 MQ139-TVOC  
 MQ139-eCO2  
@@ -197,19 +197,19 @@ eco2-TVOC
 
 ## MQ139-TVOC(electrical)
 
-![Alt text](MQ139-TVOC(electrical).png)  
+![Alt text](./png/MQ139-TVOC(electrical).png)  
 阶段一（0-250）：开始平稳  
 阶段二（250—）：指数增长
 
 ## MQ139-eCO2(electrical)
 
-![Alt text](MQ139-eCO2(electrical).png)  
+![Alt text](./png/MQ139-eCO2(electrical).png)  
 阶段一（0-250）：开始平稳  
 阶段二（250—）：指数增长
 
 ## eco2-TVOC(electrical)
 
-![Alt text](eco2-TVOC(electrical).png)  
+![Alt text](./png/eco2-TVOC(electrical).png)  
 两者成正比例
 
 ## 总结(electrical)
